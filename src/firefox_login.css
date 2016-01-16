@@ -1,0 +1,279 @@
+div#lpfirefoxlogin {
+  position: fixed;
+  left:65%;
+  top: 0px;
+  width:250px;
+  height:320px;
+  border: 0.5px solid #9f9f9f;
+  border-top: none;
+  box-shadow: 0 0 10px 0px #bbb;
+  background: #f0f0f0;
+  font-size: 11px !important;
+  line-height: 20px !important;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
+  font-weight: 300;
+  
+  font-family: Arial !important;
+  overflow:hidden;
+
+  animation-duration: 400ms;
+  animation-name: slidein;
+
+  user-select: none;
+  -moz-user-select: none;
+}
+
+div#lpfirefoxlogin.win {
+  top: 50px;
+  left: 40%;
+  font-size: 12px !important;
+  height: 340px;
+  font-family: "Segoe UI", sans-serif !important;
+  box-shadow: none;
+  animation-name: fadein;
+  animation-duration: 300ms;
+}
+
+@keyframes slidein {
+  from {
+    top: -320px;
+  }
+  to {
+    top: 0px;
+  }
+}
+
+@keyframes slideout {
+  from {
+    top: 0px;
+  }
+  to {
+    top: -320px;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+div#lpfirefoxlogin div.container {
+  margin: 0;
+  padding-top: 15px;
+  padding-left: 15px;
+  box-shadow: 0 0 10px 0px #bbb;
+}
+
+div#lpfirefoxlogin.win {
+  border: 1px solid #4d91ab;
+  width: 266px; /* 250px + 8px + 8px */
+  box-shadow: 0 0 2px 0px #bbb;
+}
+
+div#lpfirefoxlogin.win div.container {
+  width: 234px; /* 250px - 8px - 8px */
+  height: 286px;
+  border: 1px solid #56a2be;
+  box-shadow: none;
+}
+
+div#lpfirefoxlogin.win div.border {
+  border: 8px solid #65bedf;
+  border-top: none;
+  height: 332px; /* 340px - 8px */
+}
+
+div#lpfirefoxlogin div.container {
+  box-shadow: none;
+}
+
+div#lpfirefoxlogin .spacer {
+  height: 20px;
+  background: #65bedf;
+  font-size: 16px;
+  text-align: center;
+  width: auto;
+  padding: 5px 0px;
+  cursor: default;
+}
+
+div#lpfirefoxlogin .spacer button {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+
+  background: #c75050;
+  color: white;
+  width: 30px;
+  border: none;
+  border-radius: 0;
+  font-weight: bold;
+}
+
+div#lpfirefoxlogin .spacer button:hover {
+  background: #e04343;
+}
+
+div#lpfirefoxlogin a {
+  text-decoration: none !important;
+  color: #134fae !important;
+  border-bottom: none;
+  line-height: 0.5;
+}
+
+div#lpfirefoxlogin a.first {
+  margin-top: 5px;
+}
+
+div#lpfirefoxlogin a:hover {
+  text-decoration: underline !important;
+}
+
+div#lpfirefoxlogin label {
+  line-height: 0.8;
+  margin-bottom: 10px;
+  display: block;
+}
+
+div#lpfirefoxlogin label.indent {
+  padding-left: 2px;
+}
+
+div#lpfirefoxlogin label.checkbox {
+  margin-bottom: 4px;
+}
+
+div#lpfirefoxlogin input#lpemail {
+  margin-bottom: 10px;
+  padding-right: 0;
+  height: 14px;
+  width:180px;
+  font-size:11px;
+  border: 0.5px solid #9f9f9f;
+}
+
+div#lpfirefoxlogin img#lpclear {
+  position: absolute;
+  margin-top: 2px;
+}
+
+div#lpfirefoxlogin input#lppassword {
+  margin-bottom: 10px;
+  display: block;
+  height: 14px;
+  width:200px;
+}
+
+div#lpfirefoxlogin button {
+  margin: 5px 10px;
+  height: 20px;
+  font-size: 13px;
+  width: 70px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+div#lpfirefoxlogin button.osx {
+  background: linear-gradient(to bottom, #b1b1b6 0%,#919196 100%);
+}
+
+div#lpfirefoxlogin button#lpsubmit {
+  float: right;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin-right:25px;
+}
+
+div#lpfirefoxlogin button#lpcancel {
+  float: right;
+}
+
+div#lpfirefoxlogin button#dropdown {
+  font-size: 10px;
+  font-weight: bold;
+  margin-left: -3px;
+  margin-top: 1px;
+  margin-right: 5px;
+  padding: 0;
+  padding-top:1px;
+  width: 16px;
+  height: 18px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  border-top-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 0;
+}
+
+div#lpfirefoxlogin.win input#lpemail {
+  height: 16px;
+  border-right: none;
+}
+
+div#lpfirefoxlogin.win input#lpemail:focus {
+  border: 0.5px solid #569de5;
+  border-right: none;
+}
+
+div#lpfirefoxlogin.win button#dropdown {
+  background: white;
+  border-radius: 0px;
+  height: 20px;
+  color: inherit;
+  border: 0.5px solid #9f9f9f;
+  border-left: none;
+}
+
+div#lpfirefoxlogin div#submitbuttons {
+  margin-top: 10px;
+}
+
+div#lpfirefoxlogin div#submitbuttons.win button {
+  height: 22px;
+  font-size: 11px;
+  width: 75px;
+  background: linear-gradient(to bottom, #ececec 0%,#e5e5e5 100%);
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  float: none;
+  position: absolute;
+}
+
+div#lpfirefoxlogin div#submitbuttons.win button:hover {
+  background: #e6f1fc !important;
+  border: 1px solid #7eb4ea !important;
+}
+
+div#lpfirefoxlogin div#submitbuttons.win button#lpsubmit {
+  border: 1px solid #3399ff;
+  color: inherit;
+  bottom: 11px;
+  right: 80px;
+}
+
+div#lpfirefoxlogin div#submitbuttons.win button#lpcancel {
+  border: 1px solid #acacac;
+  bottom: 11px;
+  right: 5px;
+}

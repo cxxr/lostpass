@@ -1,0 +1,7 @@
+*.swp
+*.swo
+node_modules
+target
+build
+.DS_Store
+env

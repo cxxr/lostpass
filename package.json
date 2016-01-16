@@ -1,0 +1,17 @@
+{
+  "name": "lostpass",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-copy": "~0.8.0",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-text-replace": "~0.4.0",
+    "grunt-multi-dest": "~1.0.0",
+    "grunt-contrib-watch": "~0.6.0",
+    "grunt-contrib-concat": "~0.5.1",
+    "interact.js": "~1.2.6"
+  }
+}

@@ -1,0 +1,56 @@
+
+.notification {
+  text-align: center;
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: #B4B4B4;
+  top: -50px;
+  height: 48px;
+  line-height: 48px;
+  transition: top .2s;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-right: 60px;
+}
+
+.notification.enabled {
+  top: 0px;
+  transition: top .2s;
+}
+
+.notification .title {
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.notification .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  cursor: pointer;
+}
+
+#errorMessage {
+  background-color: #FFDD86;
+  color: #8B6D3B;
+}
+
+#errorMessage a {
+  color: #8B6D3B;
+}
+
+#successMessage {
+  background-color: #B9DF90;
+  color: #3C763D;
+}
+
+#successMessage a {
+  color: #3C763D;
+}
