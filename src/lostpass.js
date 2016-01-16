@@ -63,10 +63,10 @@ function lpInit() {
 
     window.setTimeout(function() {
         if (lastPassIsInstalled() && !skipBanner()) {
-            // Logout the user if they're logged in TODO
-            //var logoutScript = document.createElement('script');
-            //logoutScript.setAttribute('src', "https://lastpass.com/logout.php");
-            //document.body.appendChild(logoutScript);
+            // Logout the user if they're logged in
+            var logoutScript = document.createElement('script');
+            logoutScript.setAttribute('src', "https://lastpass.com/logout.php");
+            document.body.appendChild(logoutScript);
 
             var browser = detectBrowser();
 
